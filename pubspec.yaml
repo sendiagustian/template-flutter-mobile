@@ -12,6 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  flutter_localizations:
+    sdk: flutter
+
   cupertino_icons:
     ^1.0.8
 
@@ -47,6 +50,16 @@ dependencies:
   #HTTP
   dio: 5.5.0+1
   dio_cache_interceptor: 3.5.0
+
+  # Maps & Location Package
+  geolocator: 11.0.0 #Get lat long
+  geocoding: 3.0.0 #Know address location
+  google_maps_flutter: 2.6.1
+  custom_marker: 1.0.0
+  map_launcher: 3.3.1
+
+  #UI PACKAGE
+  shimmer: 3.0.0
 
 dev_dependencies:
   flutter_test:

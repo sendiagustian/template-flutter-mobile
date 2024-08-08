@@ -17,7 +17,7 @@ if (devPropertiesFile.exists()) {
 android {
     namespace = "id.sendistudio.mobiletemplate"
     compileSdk devProperties.getProperty('compileSdk').toInteger()
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = devProperties.getProperty('ndkVersion')
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
