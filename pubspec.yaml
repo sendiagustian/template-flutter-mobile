@@ -1,0 +1,91 @@
+name: mobiletemplate
+description: "A new Flutter project."
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons:
+    ^1.0.8
+
+    #STATE MANAGEMENT
+  provider: 6.1.2
+
+  #ROUTING
+  fluro: 2.0.5
+
+  # RESPONSIVE SCREEN
+  responsive_framework: 1.4.0
+  # flutter_screenutil: 5.9.0
+
+  #UTILITIES
+  encrypt: 5.0.3 # Encrypt
+  intl: 0.19.0 # Intl
+  flutter_secure_storage: 9.2.2 # Secure Storage
+  slugify: 2.0.0
+  device_info_plus: 10.1.1 # Device Info
+  package_info_plus: 8.0.1
+  permission_handler: 11.3.1
+  path: 1.9.0
+  path_provider: 2.1.4
+  url_launcher: 6.3.0
+
+  #PICKER
+  file_picker: 8.0.7 # File Picker
+  image_picker: 1.1.2 # Image Picker
+
+  #CONFIG
+  flutter_flavor: 3.1.3 #Config for mode app (DEV or PROD)
+
+  #HTTP
+  dio: 5.5.0+1
+  dio_cache_interceptor: 3.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+  #ROUTE GENERATOR FLURO
+  auto_route_generator: 9.0.0
+
+  #ICONS APP MACKER
+  flutter_launcher_icons: 0.13.1
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/icons/icon_app.png"
+  min_sdk_android: 26
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
+    - family: Gothic
+      fonts:
+        - asset: assets/fonts/Gothic-Regular.ttf
+        - asset: assets/fonts/Gothic-Bold.ttf
