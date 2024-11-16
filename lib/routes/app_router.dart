@@ -2,7 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 import '../middlewares/middleware.dart';
-import '../middlewares/screens/not_found_screen.dart';
+import '../middlewares/middle_screens/not_found_screen.dart';
 import '../screens/splash/splash_screen.dart';
 import 'register_routes.dart';
 

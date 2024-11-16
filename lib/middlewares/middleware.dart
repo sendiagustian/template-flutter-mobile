@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../screens/home/home_screen.dart';
+import '../screens/wrapper/wrapper_screen.dart';
 import '../screens/auth/login_screen.dart';
 import '../screens/auth/providers/auth_app_provider.dart';
 
@@ -18,7 +18,7 @@ class Middleware extends StatelessWidget {
         if (auth.authToken == null) {
           return const LoginScreen();
         } else {
-          return const HomeScreen();
+          return const WrapperScreen();
         }
       },
     );

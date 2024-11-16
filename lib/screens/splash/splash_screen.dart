@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import '../../core/themes/app_theme.dart';
-import '../../core/widgets/info_widget.dart';
+import '../../app/themes/app_theme.dart';
+import '../../common/services/app_service.dart';
+import '../../common/widgets/info_widget.dart';
 import '../../routes/services/navigator_service.dart';
 import '../../middlewares/middleware.dart';
 
@@ -17,6 +18,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class SplashScreenState extends State<SplashScreen> with SingleTickerProviderStateMixin {
+  static final AppService _appService = AppService();
+
   late AnimationController animationController;
   late Animation<double> animation;
   bool showLoading = false;
@@ -66,39 +69,38 @@ class SplashScreenState extends State<SplashScreen> with SingleTickerProviderSta
 
   @override
   Widget build(BuildContext context) {
+    _appService.setMoodTheme(Brightness.dark);
+
     return Scaffold(
-      body: SizedBox(
-        height: AppTheme.double.screenH(context),
-        child: Stack(
-          children: <Widget>[
-            Center(
-              child: ScaleTransition(
-                scale: animation,
-                child: SizedBox(
-                  height: 130,
-                  width: AppTheme.double.screenW(context) * .8,
-                  child: Image.asset(
-                    'assets/images/logo_name.png',
-                  ),
+      body: Stack(
+        children: <Widget>[
+          Center(
+            child: ScaleTransition(
+              scale: animation,
+              child: SizedBox(
+                height: 130,
+                width: AppTheme.double.screenW(context) * .8,
+                child: Image.asset(
+                  'assets/images/logo_name.png',
                 ),
               ),
             ),
-            Positioned(
-              bottom: 72,
-              left: 0,
-              right: 0,
-              child: Builder(
-                builder: (context) {
-                  if (showLoading) {
-                    return InfoWidget.loadingData();
-                  } else {
-                    return Container();
-                  }
-                },
-              ),
+          ),
+          Positioned(
+            bottom: 72,
+            left: 0,
+            right: 0,
+            child: Builder(
+              builder: (context) {
+                if (showLoading) {
+                  return InfoWidget.loadingData();
+                } else {
+                  return Container();
+                }
+              },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

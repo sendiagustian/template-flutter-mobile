@@ -4,10 +4,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
-import 'core/configs/app_config.dart';
-import 'core/configs/environment_config.dart';
-import 'core/providers/app_provider.dart';
-import 'core/themes/base_theme.dart';
+import 'app/configs/app_config.dart';
+import 'app/configs/environment_config.dart';
+import 'common/providers/app_provider.dart';
+import 'app/themes/base_theme.dart';
 import 'routes/app_router.dart';
 import 'screens/auth/providers/auth_app_provider.dart';
 import 'screens/splash/splash_screen.dart';
@@ -16,6 +16,7 @@ AppConfig appConfig = AppConfig(Environment.prod());
 
 // Build APK Bundle for Release
 // flutter build appbundle --release --no-tree-shake-icons
+// flutter build apk -t lib/main_prod.dart --release --no-tree-shake-icons --target-platform android-arm64
 
 Future<void> main() async {
   // Config initialization
@@ -28,7 +29,7 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  static final Environment env = Environment.dev();
+  static final Environment env = Environment.prod();
   static final BaseTheme theme = BaseTheme();
   static final FluroRouter router = AppRouter.instance;
 
@@ -42,8 +43,8 @@ class MyApp extends StatelessWidget {
       child: Consumer2<AppProvider, AuthAppProvider>(
         builder: (_, appProvider, auth, __) {
           return MaterialApp(
-            theme: theme.baseTheme,
-            title: 'Tong Nyampah',
+            theme: theme.baseTheme(appProvider.moodTheme),
+            title: 'Mobile Template',
             locale: const Locale('id'),
             initialRoute: SplashScreen.path,
             onGenerateRoute: router.generator,

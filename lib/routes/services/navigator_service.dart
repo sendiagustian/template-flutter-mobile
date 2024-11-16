@@ -19,12 +19,26 @@ class NavigatorService {
     return Navigator.pushNamed(context, route, arguments: data);
   }
 
+  static Future<dynamic> pushPage({
+    required BuildContext context,
+    required Widget page,
+  }) {
+    return Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+  }
+
   static Future<dynamic> pushReplace({
     required BuildContext context,
     required String route,
     Object? data,
   }) {
     return Navigator.pushReplacementNamed(context, route, arguments: data);
+  }
+
+  static Future<dynamic> pushPageReplace({
+    required BuildContext context,
+    required Widget page,
+  }) {
+    return Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => page));
   }
 
   static Future<dynamic> pushAndRemoveUntil({
